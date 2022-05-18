@@ -59,6 +59,18 @@ def process_fsnau(input_path: str, output_path: str, cutoff: float = 1e-3) -> No
     df.to_csv(output_path, index=False)
 
 
+def process_ipc(input_path: str, output_path: str, cutoff: float = 1e-3) -> None:
+    """Process IPC csv. Area names to lowercase.
+
+    Args: 
+        input_path (str): input path to ipc csv
+        output_path (str): output path to ipc csv
+    """
+    df = pd.read_csv(input_path, parse_dates=['date'])
+    df['area'] = df['area'].str.lower()
+    df.to_csv(output_path, index=False)
+
+
 def process_locations(input_path: str, output_path: str) -> None:
     """Process locations csv. Remove duplicates and rename columns.
 
@@ -80,4 +92,5 @@ if __name__ == '__main__':
                        path + 'world_bank_processed.csv')
     process_fsnau(path + 'fsnau_full.csv',
                   path + 'fsnau_processed.csv')
+    process_ipc(path + 'ipc.csv', path + 'ipc_processed.csv')
     process_locations(path + 'locations.csv', path + 'locations_processed.csv')
