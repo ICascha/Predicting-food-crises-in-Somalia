@@ -86,6 +86,16 @@ def process_locations(input_path: str, output_path: str) -> None:
     df.to_csv(output_path, index=False)
 
 
+def process_production(input_path: str, output_path: str) -> None:
+    df = pd.read_csv(input_path, parse_dates=['date'])
+    df['area'] = df['district'].str.lower()
+    df['area'].replace({'ceel bur': 'ceel buur', 'el berde': 'ceel barde',
+                       'garbaharey/burdhuubo': 'garbahaarey'}, inplace=True)
+    df.drop(['district'], axis=1)
+    df = df[df['area'] != 'hagar']
+    df.to_csv(output_path, index=False)
+
+
 if __name__ == '__main__':
     path = 'datasets/'
     process_world_bank(path + 'predicting_food_crises_data.csv',
@@ -94,3 +104,5 @@ if __name__ == '__main__':
                   path + 'fsnau_processed.csv')
     process_ipc(path + 'ipc.csv', path + 'ipc_processed.csv')
     process_locations(path + 'locations.csv', path + 'locations_processed.csv')
+    process_production(path + 'production.csv', path +
+                       'production_processed.csv')
