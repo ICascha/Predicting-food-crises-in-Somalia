@@ -11,3 +11,6 @@ conda config --env --add channels conda-forge
 conda config --env --set channel_priority strict
 conda install python=3 geopandas
 ```
+
+Alternatively, this project can be opened in Google Colab
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/googlecolab/colabtools/blob/master/notebooks/colab-github-demo.ipynb)
