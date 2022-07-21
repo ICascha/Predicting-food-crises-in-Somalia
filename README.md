@@ -15,3 +15,9 @@ conda install python=3 geopandas
 Alternatively, this project can be opened in Google Colab where the required dependencies are installed automatically:
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/ICascha/Predicting-food-crises-in-Somalia)
+
+## Notebooks:
+
+### Twitter analysis:
+*
+*
