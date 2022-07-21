@@ -19,5 +19,5 @@ Alternatively, this project can be opened in Google Colab where the required dep
 ## Notebooks:
 
 ### Twitter analysis:
-*
+* [Obtaining tweets](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/obtaining_twitter_data.ipynb)
 *
