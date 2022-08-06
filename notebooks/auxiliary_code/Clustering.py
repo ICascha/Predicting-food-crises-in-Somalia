@@ -1,4 +1,5 @@
 import matplotlib.pyplot as plt
+import matplotlib.dates as mdate
 from sklearn.cluster import KMeans
 from pandas import DataFrame
 
@@ -10,8 +11,9 @@ class Clustering:
         self.cluster_sizes = cluster_sizes
         self.seed = seed
 
-    def spatial_clustering(self, areas, values, dates, df_shape):
-        fig, axs = plt.subplots(nrows=3, ncols=3, figsize=(20, 10))
+    def spatial_clustering(self, areas, values, dates, df_shape,  xlab=None, ylab=None):
+        fig, axs = plt.subplots(nrows=len(
+            self.cluster_sizes), ncols=3, figsize=(20, 3.3 * len(self.cluster_sizes)))
         for n in self.cluster_sizes:
 
             kmeans = KMeans(n_clusters=n, random_state=self.seed).fit(values)
@@ -26,6 +28,21 @@ class Clustering:
         axs[0, 0].set_title('clusters', size=20)
         axs[0, 1].set_title('discrict-level trends', size=20)
         axs[0, 2].set_title('cluster-level trends', size=20)
+
+        if ylab:
+            for i in range(len(self.cluster_sizes)):
+                axs[i, 1].set_ylabel(ylab, size=14)
+        if xlab:
+            axs[-1, 1].set_xlabel(xlab, size=14)
+            axs[-1, 2].set_xlabel(xlab, size=14)
+                
+        locator = mdate.YearLocator()
+        for i in range(len(self.cluster_sizes)):
+            axs[i, 1].xaxis.set_major_locator(locator)
+            axs[i, 2].xaxis.set_major_locator(locator)
+        
+        plt.minorticks_off()
+
         return fig
 
     def __plot_spatial_clustering(self, values, clusters, df_plot, dates, axs, n):
