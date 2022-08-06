@@ -18,7 +18,7 @@ Alternatively, this project can be opened in Google Colab where the required dep
 
 ## Notebooks:
 
-- [Survival analysis and analysis into model performance](https://github.com/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/survival_analysis.ipynb)
+- [Survival analysis and analysis into model performance](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/survival_analysis.ipynb)
 
 ### Twitter analysis:
 
