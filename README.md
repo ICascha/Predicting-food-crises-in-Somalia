@@ -52,8 +52,8 @@ If you get an error that a package is missing (for example, geopandas or linearm
 
 ### Predictive modeling:
 
-- [Model fitting, evaluation and hyperparameter tuning](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/twitter_data_geotags.ipynb)
-- [Replication in ethiopia](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/twitter_data_geotags.ipynb)
+- [Model fitting, evaluation and hyperparameter tuning](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/model_fitting.ipynb)
+- [Replication in ethiopia](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/ethiopia_replication.ipynb)
 
 ### Satellite images:
 
