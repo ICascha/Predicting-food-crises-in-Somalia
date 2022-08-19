@@ -46,7 +46,7 @@ If you get an error that a package is missing (for example, geopandas or linearm
 
 ### Gaurdian anlysis:
 
-- [Obtaining the articles (script file)]()
+- [Obtaining the articles (script file)](https://github.com/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/auxiliary_code/gaurdian_download.py)
 - [Sentiment labeling](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/guardian_sentiment_labeling.ipynb)
 - [Sentiment analysis](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/guardian_analysis.ipynb)
 
@@ -96,4 +96,4 @@ This works fine for small files, but for big files (like gaurdian.json), this is
 
 You can download the results of the Colab session while the session is still running like so:
 
-![Download Cola Example](https://github.com/ICascha/Predicting-food-crises-in-Somalia/blob/main/download_file_colab.png)
+![Download Colab Example](https://github.com/ICascha/Predicting-food-crises-in-Somalia/blob/main/download_file_colab.png)
