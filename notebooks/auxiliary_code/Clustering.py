@@ -11,9 +11,9 @@ class Clustering:
         self.cluster_sizes = cluster_sizes
         self.seed = seed
 
-    def spatial_clustering(self, areas, values, dates, df_shape,  xlab=None, ylab=None):
+    def spatial_clustering(self, areas, values, dates, df_shape,  xlab=None, ylab=None, kwargs={}):
         fig, axs = plt.subplots(nrows=len(
-            self.cluster_sizes), ncols=3, figsize=(20, 3.3 * len(self.cluster_sizes)))
+            self.cluster_sizes), ncols=3, figsize=(20, 3.3 * len(self.cluster_sizes)), squeeze=False)
         for n in self.cluster_sizes:
 
             kmeans = KMeans(n_clusters=n, random_state=self.seed).fit(values)
@@ -23,7 +23,7 @@ class Clustering:
             df_plot = df_shape.merge(
                 df_cluster, left_index=True, right_index=True)
             self.__plot_spatial_clustering(
-                values, clusters, df_plot, dates, axs, n)
+                values, clusters, df_plot, dates, axs, n, kwargs)
 
         axs[0, 0].set_title('clusters', size=20)
         axs[0, 1].set_title('discrict-level trends', size=20)
@@ -35,25 +35,25 @@ class Clustering:
         if xlab:
             axs[-1, 1].set_xlabel(xlab, size=14)
             axs[-1, 2].set_xlabel(xlab, size=14)
-                
+
         locator = mdate.YearLocator()
         for i in range(len(self.cluster_sizes)):
             axs[i, 1].xaxis.set_major_locator(locator)
             axs[i, 2].xaxis.set_major_locator(locator)
-        
+
         plt.minorticks_off()
 
         return fig
 
-    def __plot_spatial_clustering(self, values, clusters, df_plot, dates, axs, n):
+    def __plot_spatial_clustering(self, values, clusters, df_plot, dates, axs, n, kwargs):
 
         df_plot.plot(column='cluster', cmap='tab10',
                      ax=axs[n-2, 0], scheme='User_Defined', classification_kwds=dict(bins=range(9)))
         for i in range(n):
             axs[n-2, 1].plot(dates, values[clusters == i].T,
-                             alpha=0.2, c=cmap(i))
+                             alpha=0.2, c=cmap(i), **kwargs)
             axs[n-2, 2].plot(dates, values[clusters ==
-                                           i].T.mean(axis=1), c=cmap(i))
+                                           i].T.mean(axis=1), c=cmap(i), **kwargs)
         axs[n-3, 0].axis('off')
 
 
@@ -67,7 +67,7 @@ if __name__ == '__main__':
     path_shape = cwd + '\\geography\\Somalia\\Som_Admbnda_Adm2_UNDP.shp'
 
     df_phase = pd.read_csv(path_ipc, parse_dates=['date'], usecols=[
-                           'date', 'area', 'area_phase'])
+        'date', 'area', 'area_phase'])
 
     set_index(df_phase)
     df_phase_unstacked = df_phase.unstack()

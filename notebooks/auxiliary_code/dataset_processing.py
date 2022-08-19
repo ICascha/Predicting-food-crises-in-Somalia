@@ -2,7 +2,7 @@ import pandas as pd
 from numpy import nan
 
 
-def process_world_bank(input_path: str, output_path: str) -> None:
+def process_world_bank(input_path: str, output_path: str, country='Somalia') -> None:
     """process the world bank data. Removing uneccesary data
     and renaming columns.
 
@@ -11,11 +11,11 @@ def process_world_bank(input_path: str, output_path: str) -> None:
         output_path (str): output path to processed csv
     """
     df = pd.read_csv(input_path)
-    df = df[df['country'] == 'Somalia']
+    df = df[df['country'] == country]
     df['date'] = pd.to_datetime(df['year_month'], format='%Y_%m')
     df.rename({'area': 'surface_area'}, axis=1, inplace=True)
     df['area'] = df['admin_name'].str.lower()
-    df.drop(['admin_code', 'country', 'year_month',
+    df.drop(['country', 'year_month',
             'year', 'month', 'admin_name'], axis=1, inplace=True)
     df.to_csv(output_path, index=False)
 
@@ -50,7 +50,8 @@ def process_fsnau(input_path: str, output_path: str, cutoff: float = 1e-3) -> No
     df.rename({'Districts': 'area'}, axis=1, inplace=True)
     price_columns = ['Price of water', 'Sorghum prices', 'Maize prices',
                      'Red Rice prices', 'Local goat prices', 'Cost of Minimum Basket (CMB)']
-    mask = df[price_columns] >= df[price_columns].quantile(.999)
+    mask = df[price_columns] >= df[price_columns].quantile(1-cutoff)
+    mask = mask | df[price_columns] <= df[price_columns].quantile(cutoff)
     mask = mask | (df[price_columns] < epsilon)
 
     for col in price_columns:
@@ -59,7 +60,7 @@ def process_fsnau(input_path: str, output_path: str, cutoff: float = 1e-3) -> No
     df.to_csv(output_path, index=False)
 
 
-def process_ipc(input_path: str, output_path: str, cutoff: float = 1e-3) -> None:
+def process_ipc(input_path: str, output_path: str) -> None:
     """Process IPC csv. Area names to lowercase.
 
     Args: 
@@ -106,3 +107,5 @@ if __name__ == '__main__':
     process_locations(path + 'locations.csv', path + 'locations_processed.csv')
     process_production(path + 'production.csv', path +
                        'production_processed.csv')
+    process_world_bank(path + 'predicting_food_crises_data.csv',
+                       path + 'world_bank_processed_ethiopia.csv', country='Ethiopia')
