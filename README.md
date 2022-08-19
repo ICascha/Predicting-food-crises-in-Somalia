@@ -18,7 +18,12 @@ Alternatively, this project can be opened in Google Colab where the required dep
 
 ## Notebooks:
 
-- [Survival analysis and analysis into model performance](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/survival_analysis.ipynb)
+### Data analysis:
+
+- [EDA of IPC data](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/IPC_EDA.ipynb)
+- [EDA of World Bank data]()
+- [EDA of FSNAU data]()
+- [Survival analysis and analysis amd model performance](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/survival_analysis.ipynb)
 
 ### Twitter analysis:
 
@@ -26,3 +31,15 @@ Alternatively, this project can be opened in Google Colab where the required dep
 - [Author analysis (anonimized)](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/twitter_exploration.ipynb)
 - [Geotag estimation](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/twitter_data_geotags.ipynb)
 - []
+
+### Predictive modeling:
+
+- [Model fitting, evaluation and hyperparameter tuning](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/twitter_data_geotags.ipynb)
+
+- [Replication in ethiopia](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/twitter_data_geotags.ipynb)
+
+### Satellite images:
+
+- [Obtaining the images](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/sentinel_processing.ipynb)
+- [Encoding the images](https://nbviewer.org/github/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/encoding_satellite_images.ipynb)
+- [Soil moisture]()
