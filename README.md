@@ -2,8 +2,10 @@
 
 Master thesis project
 
+**IMPORTANT DISCLAIMER**: This repositry is meant for replication of my master's thesis. Most results in during the thesis turned out negative, most importantly using **Satellite images**. I do not recommend to take this approach in future research as it requires a large amount of computational resources and time. I have tested many setups around this approach and they all failed to deliver results.
+
 If you run into any issues/have any questions let me know on my [email](mailto:caschavanwanrooij@gmail.com) or open
-an issue on this GitHub repo.
+an issue on this GitHub repo. **Feel free to mail for anything related to this project or a continuation!**.
 
 The easiest way to set up an environment for this project is to use a [Anaconda](https://www.anaconda.com/) virtual environment. Open up an anaconda prompt and run the following commands:
 
