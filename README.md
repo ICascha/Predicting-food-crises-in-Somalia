@@ -81,6 +81,19 @@ For the sattelite images in the notebook you will need to obtain a client ID and
 
 ### Order of execution
 
-- Run [dataset_processing]
+- Run [dataset_processing](https://github.com/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/auxiliary_code/dataset_processing.py)
+- Run the [FSNAU scraper](https://github.com/ICascha/Predicting-food-crises-in-Somalia/blob/main/notebooks/auxiliary_code/fsnau_scraper.ipynb)
 - Run all data anlysis notebooks
 - Any of the other notebook categories described above can be run independently after these steps. Do make sure to run the notebooks in the order given above within a category.
+
+### Colab specifics
+
+For all notebooks that require neural network training it is advised to rune these on Colab with the GPU option, a guide is given [here](https://www.tutorialspoint.com/google_colab/google_colab_using_free_gpu.htm). You will also need to upload some files either to the Colab instance directly, this can be done in the menu at the left of the screen:
+
+![Upload Colab Example](https://github.com/ICascha/Predicting-food-crises-in-Somalia/blob/main/upload_file_colab.png)
+
+This works fine for small files, but for big files (like gaurdian.json), this is really slow. It is best to upload large files to your google drive. Then, you can link your google drive with the colab session using this [tutorial](https://www.marktechpost.com/2019/06/07/how-to-connect-google-colab-with-google-drive/). Your drive will be mounted at the location /content/drive/.
+
+You can download the results of the Colab session while the session is still running like so:
+
+![Download Cola Example](https://github.com/ICascha/Predicting-food-crises-in-Somalia/blob/main/download_file_colab.png)
